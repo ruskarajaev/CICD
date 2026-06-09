@@ -1,0 +1,16 @@
+name: MyFirstCICD
+run-name: Push ${{ github.actor }}
+on:
+  push:
+    branches: 
+        - main
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v6
+      - run: docker compose config -q
+
+
+
+    
