@@ -1,11 +1,14 @@
 name: MyFirstCICD
-run-name: Push ${{ github.actor }}
+run-name: ${{ github.event_name}} by ${{ github.actor }}
 on:
   push:
     branches: 
         - main
+  pull_request:
+    branches:
+      - main
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v6
